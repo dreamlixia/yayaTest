@@ -29,4 +29,4 @@ If you would like to contribute, please fork the repository and submit a pull re
 
 ## License
 
-This extension is licensed under the [MIT License](LICENSE).
+This extension is licensed under the [MIT License](git@github.com:dreamlixia/yayaTest.git).

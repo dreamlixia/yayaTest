@@ -7,6 +7,10 @@
   "engines": {
     "vscode": "^1.95.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dreamlixia/yayaTest.git"
+  },
   "categories": [
     "Other"
   ],
