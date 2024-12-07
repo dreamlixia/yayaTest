@@ -38,8 +38,8 @@ class GitTools {
     this.user = '';
   }
   async branch(){
-	const res = await this.runGitCommand('git branch');
-	return res;
+	  const res = await this.runGitCommand('git branch');
+	  return res;
   }
   runGitCommand(command:string) {
     return new Promise((resolve, reject) => {

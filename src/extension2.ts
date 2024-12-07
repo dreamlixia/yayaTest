@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 		console.log(uri);
 		fs.writeFile(path.join(uri, 'index.html'), content, (err) => {
 			if (err) {
-			vscode.window.showErrorMessage('创建失败');
+				vscode.window.showErrorMessage('创建失败');
 			}
 			vscode.window.showInformationMessage('创建成功');
 		});

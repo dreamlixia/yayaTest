@@ -1,39 +1,43 @@
-import simpleGit, { SimpleGit } from 'simple-git';
-import * as vscode from 'vscode';
+/**
+ * optionList
+ */
+
+import * as vscode from "vscode";
 
 export function activate(context: vscode.ExtensionContext) {
-  let disposable = vscode.commands.registerCommand('test.helloWorld', async () => {
-    const workspaceFolders = vscode.workspace.workspaceFolders;
-    if (workspaceFolders && workspaceFolders.length > 0) {
-      const workspacePath = workspaceFolders[0].uri.fsPath;
-      const git: SimpleGit = simpleGit(workspacePath);
+    // 注册一个命令 learn-vscode-extends.quickPick
+    const disposable = vscode.commands.registerCommand("learn-vscode-extends.quickPick", () => {
+        // 打开一个快速选择列表
+        vscode.window.showQuickPick(
+            // ["选项一", "选项二", "选项三"], // 简单的显示多个选项
+            [
+                { // 对象的形式可以配置更多东西
+                    label: "选项一",
+                    description: "选项一描述$(bug)", // 可以指定官方提供的图标id https://code.visualstudio.com/api/references/icons-in-labels#icon-listing
+                    detail: "选项一详细信息",
+                    mate: { // 这里也可以放一些自定义的对象
+                        script: "learn-vscode-extends.helloWrold" 
+                    },
+                },
+                {
+                    label: "选项二",
+                    description: "选项二描述",
+                    detail: "选项二详细信息$(gear)",
+                }
+            ],
+            {
+                title: "请选择一个选项", // 标题
+                placeHolder: "用户类型", // 占位符文本
+                canPickMany: false, // 是否可以多选
+            }
+        ).then((res: vscode.QuickPickItem | undefined) => {
+            if (!res) return;
+            console.log(res); // 这里就是上面数组中对应的对象信息
+        })
+    });
 
-      try {
-        // 检查是否是一个 Git 仓库
-        const isRepo = await git.checkIsRepo();
-        if (!isRepo) {
-          vscode.window.showErrorMessage('当前工作区不是一个 Git 仓库');
-          return;
-        }
-
-        // 获取分支信息
-        const branchSummary = await git.branch();
-        const currentBranch = branchSummary.current;
-
-        if (currentBranch) {
-          vscode.window.showInformationMessage(`当前分支: ${currentBranch}`);
-        } else {
-          vscode.window.showErrorMessage('无法获取当前分支');
-        }
-      } catch (error: any) {
-        vscode.window.showErrorMessage(`获取当前分支失败: ${error.message}`);
-      }
-    } else {
-      vscode.window.showInformationMessage('No workspace folder open');
-    }
-  });
-
-  context.subscriptions.push(disposable);
+    context.subscriptions.push(disposable);
 }
 
-export function deactivate() {}
+export function deactivate() { }
+

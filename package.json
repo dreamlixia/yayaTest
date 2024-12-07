@@ -10,15 +10,72 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:test.helloWorld",
-    "onStartupFinished"
+    "onCommand:helloList.add",
+    "onStartupFinished",
+    "onView:git-userlist-test"
   ],
   "main": "./out/extension.js",
+  "publisher": "Lynsey",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "hello-list",
+          "title": "helloWorld",
+          "icon": "images/search.svg"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "git-userlist-test",
+          "name": "Git User List 啦啦啦"
+        }
+      ],
+      "hello-list": [
+        {
+          "id": "git-userlist",
+          "name": "项目成员"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "when": "view == git-userlist",
+          "command": "userList.add",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "when": "view == git-userlist",
+          "command": "userList.item.check",
+          "group": "inline"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "test.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "userList.add",
+        "title": "addxxx"
+      },
+      {
+        "command": "userList.item.check",
+        "title": "item check 看看看"
+      },
+      {
+        "command": "git-userlist-test.refresh",
+        "title": "Refresh Simple Tree View"
+      },
+      {
+        "command": "learn-vscode-extends.quickPick",
+        "title": "what quickPick"
       }
     ]
   },
