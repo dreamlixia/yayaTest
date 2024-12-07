@@ -14,7 +14,7 @@ A brief description of what your extension does.
 
 1. Open Visual Studio Code.
 2. Go to the Extensions view by clicking the Extensions icon in the Activity Bar on the side of the window.
-3. Search for `your-extension-name`.
+3. Search for `yaya Test`.
 4. Click Install.
 
 ## Usage
