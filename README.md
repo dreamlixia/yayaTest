@@ -1,5 +1,7 @@
 # test README
 
+**test extension v1**
+
 This is the README for your extension "test". After writing up a brief description, we recommend including the following sections.
 
 ## Features
@@ -35,7 +37,7 @@ Calling out known issues can help limit users opening duplicate issues against y
 
 Users appreciate release notes as you update your extension.
 
-### 1.0.0
+### 0.0.1
 
 Initial release of ...
 

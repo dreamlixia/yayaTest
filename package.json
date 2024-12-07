@@ -3,6 +3,7 @@
   "displayName": "yayaTest",
   "description": "yayaTest",
   "version": "0.0.1",
+  "publisher": "Lynsey",
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -15,7 +16,6 @@
     "onView:git-userlist-test"
   ],
   "main": "./out/extension.js",
-  "publisher": "Lynsey",
   "contributes": {
     "viewsContainers": {
       "activitybar": [
